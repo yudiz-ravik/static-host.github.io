@@ -8,6 +8,7 @@
     <style>
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -17,10 +18,43 @@
         }
         h1 {
             color: #333;
+            animation: fadeIn 2s ease-in-out;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
 <body>
-    <h1>Yudiz Hub માં આપનું સ્વાગત છે</h1>
+    <h1 id="greeting">Yudiz Hub માં આપનું સ્વાગત છે</h1>
+    <button onclick="changeGreeting()">અન્ય સંદેશ દર્શાવો</button>
+
+    <script>
+        function changeGreeting() {
+            const greetings = [
+                "આજે તમારો દિવસ સુખદ રહે!",
+                "અમે આશા રાખીએ છીએ કે તમે મજા કરશો!",
+                "Yudiz Hub સાથે મળીને નવા માર્ગોમાં આગળ વધો!",
+                "તમારું સ્વાગત છે, ચાલો શરૂઆત કરીએ!"
+            ];
+            const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
+            document.getElementById('greeting').textContent = randomGreeting;
+        }
+    </script>
 </body>
 </html>
